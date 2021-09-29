@@ -102,11 +102,11 @@ DECLARE
  
 BEGIN
     ATT.FCESP_CALC_PCT_ABAT_RESG( 40    
-                                 ,2084694
-                                 ,36357703885
+                                 ,2072173
+                                 ,40865265810
                                  ,1
-                                 ,191001225
-                                 ,TO_DATE('30/09/2020','DD/MM/RRRR')
+                                 ,190703802
+                                 ,TO_DATE('29/01/2021','DD/MM/RRRR')
                                  , L_EXCEPTION);
     
     DBMS_OUTPUT.PUT_LINE(L_EXCEPTION);
@@ -120,11 +120,11 @@ DECLARE
  
 BEGIN
     ATT.FCESP_RET_ABAT_RESG_COTAS( 40    
-                                 ,2084694
-                                 ,36357703885
+                                 ,2072173
+                                 ,40865265810
                                  ,1
-                                 ,191001225
-                                 ,TO_DATE('30/09/2020','DD/MM/RRRR')
+                                 ,190703802
+                                 ,TO_DATE('29/01/2021','DD/MM/RRRR')
                                  , L_EXCEPTION);
     
     DBMS_OUTPUT.PUT_LINE(L_EXCEPTION);
