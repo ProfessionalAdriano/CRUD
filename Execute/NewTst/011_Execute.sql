@@ -8,6 +8,55 @@ SELECT * FROM OWN_FUNCESP.PRE_TBL_LOG_TRANSACAO_ABAT_EMP WHERE DT_INIC_PROCESS >
 SELECT * FROM ATT.FCESP_TAB_VLR_ABAT_RESG  WHERE NUM_RGTRO_EMPRG = 2084694; --FOR UPDATE;  
 
 
+-- EFETUAR TESTE DOS SELECTS:
+
+DECLARE
+
+  L_RETURN_CURSOR SYS_REFCURSOR;
+  L_TAB           ATT.FCESP_TAB_VLR_ABAT_RESG%ROWTYPE;
+
+  -- EXCEPTIONS:
+
+  L_EXCEPTION     NUMBER; 
+
+BEGIN
+
+  OWN_FUNCESP.PROC_CAD_EMPRESTIMO( 'S',
+                                   NULL,
+                                   302803,
+                                   NULL,
+                                   NULL,
+                                   NULL,
+                                   NULL,
+                                   NULL,
+                                   TO_DATE('31/10/2019','DD/MM/RRRR'),
+                                   NULL,
+                                   NULL,
+                                   L_RETURN_CURSOR,
+                                   L_EXCEPTION
+                                  );                             
+  LOOP
+    FETCH L_RETURN_CURSOR INTO L_TAB;
+    EXIT WHEN L_RETURN_CURSOR%NOTFOUND;
+
+    DBMS_OUTPUT.PUT_LINE( L_TAB.COD_EMPRS        || CHR(13)  ||
+                          L_TAB.NUM_RGTRO_EMPRG  || CHR(13)  ||
+                          L_TAB.NUM_MATR_PARTF   || CHR(13)  ||
+                          L_TAB.NUM_CPF_EMPRG    || CHR(13)  ||
+                          L_TAB.NUM_IDENT_GESTOR || CHR(13)  ||
+                          L_TAB.TPO_NEGOCIO      || CHR(13)  ||
+                          L_TAB.VLR_ABAT         || CHR(13)  ||
+                          L_TAB.DTA_INCL         || CHR(13)  ||
+                          L_TAB.DTA_FINAL        || CHR(13)  ||
+                          L_TAB.VLR_EFET_ABAT    || CHR(13));                          
+
+  END LOOP;  
+    DBMS_OUTPUT.PUT_LINE(L_EXCEPTION); 
+END;
+
+
+
+
 -- INSERT:
 DECLARE
 
